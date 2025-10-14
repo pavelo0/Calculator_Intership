@@ -1,0 +1,234 @@
+:root {
+    --bg: #0f1115;
+    --panel: #1b1f2a;
+    --panel-2: #151925;
+    --text: #e8eaf0;
+    --muted: #9aa3b2;
+    --accent: #6c8cff;
+    --accent-strong: #4a6bff;
+    --operator: #f39c12;
+    --operator-strong: #e38d05;
+    --btn: #2a2f3a;
+    --btn-hover: #333a47;
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme='light'] {
+    --bg: #f2f5fb;
+    --panel: #ffffff;
+    --panel-2: #f7f9fd;
+    --text: #1e2230;
+    --muted: #5b667a;
+    --accent: #3b82f6;
+    --accent-strong: #1d4ed8;
+    --operator: #ffb020;
+    --operator-strong: #ed9804;
+    --btn: #eef2f9;
+    --btn-hover: #e7ecf6;
+    --shadow: 0 18px 36px rgba(18, 24, 40, 0.18);
+}
+
+body {
+    margin: 0;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        Segoe UI,
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        Fira Sans,
+        Droid Sans,
+        Helvetica Neue,
+        Arial,
+        sans-serif;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+}
+
+#app {
+    font-size: 24px;
+}
+
+.calc {
+    width: 360px;
+    background: var(--panel);
+    color: var(--text);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.display {
+    font-size: 56px;
+    text-align: right;
+    padding: 24px;
+    background: #2a2a2c;
+}
+
+.top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 18px;
+    background: var(--panel-2);
+}
+
+.decorations {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.decorations .ac {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition:
+        transform 0.12s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    box-shadow: 0 6px 14px rgba(108, 140, 255, 0.35);
+}
+.decorations .ac:hover {
+    background: var(--accent-strong);
+    transform: translateY(-1px);
+}
+.decorations .ac:active {
+    transform: translateY(0);
+}
+
+.decorations .theme-toggle {
+    margin-left: 8px;
+    background: var(--btn);
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.12s ease;
+}
+.decorations .theme-toggle:hover {
+    background: var(--btn-hover);
+    transform: translateY(-1px);
+}
+.decorations .theme-toggle:active {
+    transform: translateY(0);
+}
+
+.input {
+    width: 100%;
+    font-size: 48px;
+    text-align: right;
+    border: none;
+    color: var(--text);
+    background: transparent;
+}
+
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.keys button {
+    font-size: 22px;
+    padding: 18px 0;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--btn);
+    color: var(--text);
+    cursor: pointer;
+    border-radius: 18px;
+    margin: 8px;
+    transition:
+        transform 0.08s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.keys button:hover {
+    background: var(--btn-hover);
+    transform: translateY(-1px);
+}
+.keys button:active {
+    transform: translateY(0);
+}
+
+/* old operator coloring for .keys removed in favor of attribute-based rules */
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 6px 8px 14px 8px;
+}
+
+.buttons button {
+    font-size: 22px;
+    padding: 16px 0;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--btn);
+    color: var(--text);
+    cursor: pointer;
+    border-radius: 18px;
+    margin: 6px;
+    transition:
+        transform 0.08s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.buttons button:hover {
+    background: var(--btn-hover);
+    transform: translateY(-1px);
+}
+.buttons button:active {
+    transform: translateY(0);
+}
+
+/* Color all operation buttons explicitly */
+.buttons [data-button-type='operator'] {
+    background: var(--operator);
+    color: #1e2230;
+}
+.buttons [data-button-type='operator']:hover {
+    background: var(--operator-strong);
+}
+
+.buttons [data-button-type='equal'] {
+    background: var(--operator);
+    color: #1e2230;
+}
+.buttons [data-button-type='equal']:hover {
+    background: var(--operator-strong);
+}
+
+.buttons [data-button-type='percent'],
+.buttons [data-button-type='toggle_sign'] {
+    background: var(--operator);
+    color: #1e2230;
+}
+.buttons [data-button-type='percent']:hover,
+.buttons [data-button-type='toggle_sign']:hover {
+    background: var(--operator-strong);
+}
+
+.buttons [data-button-type='clear_all'],
+.buttons .ac {
+    background: var(--operator);
+    color: #1e2230;
+}
+.buttons [data-button-type='clear_all']:hover,
+.buttons .ac:hover {
+    background: var(--operator-strong);
+}
+
+/* make zero span two columns */
+.buttons .zero {
+    grid-column: span 2;
+}
