@@ -161,8 +161,6 @@ body {
     transform: translateY(0);
 }
 
-/* old operator coloring for .keys removed in favor of attribute-based rules */
-
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

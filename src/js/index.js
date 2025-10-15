@@ -125,7 +125,6 @@ function main() {
     }
   });
 
-  // AC is now inside the keyboard grid
   buttons.addEventListener("click", function (event) {
     const target = event.target;
     if (!(target instanceof Element)) return;
@@ -144,7 +143,6 @@ function main() {
     showDisplayValue(calculatorState.displayValue, display);
   };
 
-  // theme management
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "light") document.documentElement.setAttribute("data-theme", "light");
   themeToggle &&
