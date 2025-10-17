@@ -1,4 +1,4 @@
-require("./styles.css");
+import "./styles.css";
 
 const BUTTON_TYPES = {
   OPERATOR: "operator",
