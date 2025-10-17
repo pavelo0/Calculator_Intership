@@ -5,7 +5,7 @@ Task: Level 0 — Simple Calculator (vanilla JS, no frameworks). Webpack build m
 How to run the app (dev):
 
 1. Install dependencies
-    - `npm ci`
+    - `npm i`
 2. Start dev server
     - `npm run start`
 
