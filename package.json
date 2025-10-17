@@ -29,7 +29,7 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "type": "commonjs",
+    "type": "module",
     "lint-staged": {
         "*.js": [
             "prettier --write",
